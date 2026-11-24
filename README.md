@@ -1,13 +1,13 @@
 ## 📊 Questão 11 — Estudo Aplicado (Estratégia de Alocação de Orçamento)
 
 ### 1. Pergunta de Negócio Investigada
-**Como a diretoria deve distribuir o orçamento de marketing e a força de vendas entre categorias de produtos e períodos do ano para maximizar o faturamento líquido, considerando a diferença entre itens de alto giro unitário e categorias de maior receita, além da perda de tração observada nos meses de dezembro entre 2021 e 2023?**
+**Como a diretoria deve distribuir o orçamento de marketing e a força de vendas entre categorias de produtos e períodos do ano para maximizar o faturamento líquido, considerando a diferença entre itens de alto giro unitário e categorias de maior receita, além da perda de vendas observada nos meses de dezembro entre 2021 e 2023?**
 
 ---
 
 ### 2. Descrição Metodológica
 Para sustentar a decisão estratégica, realizou-se uma investigação multidimensional a partir da base `vendas.csv` tratada em Python (`pandas` e `matplotlib`):
-1. **Saneamento e Padronização:** Remoção de registros duplicados, tratamento de valores ausentes em `cidade_cliente`, conversão de `quantidade` para valores absolutos (`abs()`), padronização de nomenclaturas em `categoria_produto` (`Informatica` → `Informática` e `Eletronicos` → `Eletrônicos`) e conversão temporal de `data_venda`.
+1. **Tratamento e Padronização:** Remoção de registros duplicados, tratamento de valores ausentes em `cidade_cliente`, conversão de `quantidade` para valores absolutos (`abs()`), padronização de nomenclaturas em `categoria_produto` (`Informatica` → `Informática` e `Eletronicos` → `Eletrônicos`) e conversão temporal de `data_venda`.
 2. **Filtro de Receita Realizada:** Isolamento das operações com `status_venda == 'Concluído'` para evitar distorções de faturamento bruto sobre pedidos não efetivados, mensurando o impacto da política de descontos sobre o `valor_total`.
 3. **Cruzamento Multidimensional (Categoria × Produto × Tempo):**
    - Comparação entre o **volume de unidades comercializadas** (Top 10 produtos) e a **participação no faturamento líquido por categoria** (`categoria_limpa`).
